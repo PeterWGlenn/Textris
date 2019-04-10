@@ -8,7 +8,14 @@ public class Game {
 
         // Create Display
         Display display = new Display();
-        display.populate();
+
+        Character[][] model = new Character[3][3];
+        model[0][0] = '#';
+        model[1][0] = '#';
+        model[2][0] = '#';
+        model[1][1] = '#';
+        display.render(model, 6, 7);
+
         display.update();
     }
 
