@@ -37,6 +37,14 @@ public class Display {
         }
     }
 
+    public void erase(Character[][] model, int x, int y) {
+        for (int h = 0; h < model.length; h++) {
+            for (int l = 0; l < model[0].length; l++) {
+                screen[x + l][y + h] = ' ';
+            }
+        }
+    }
+
     public void update() {
 
         for (int h = 0; h < height; h++) {

@@ -1,5 +1,6 @@
 package main;
 
+import blocks.OBlock;
 import text.Display;
 
 public class Game {
@@ -18,10 +19,16 @@ public class Game {
         model[1][1] = '#';
         display.render(model, 6, 7);
 
+        OBlock o = new OBlock(2);
+
         // Game Loop
         while (true) {
 
+            // Updates
+            o.update(display);
             display.update();
+
+            // Sleep
             Thread.sleep((long) (1000.0 / FPS));
         }
     }
