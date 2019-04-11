@@ -19,7 +19,7 @@ public class Game {
         model[1][1] = '#';
         display.render(model, 6, 7);
 
-        OBlock o = new OBlock(2);
+        OBlock o = new OBlock(5);
 
         // Game Loop
         while (true) {

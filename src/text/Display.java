@@ -62,4 +62,8 @@ public class Display {
 
     }
 
+    public Character[][] getScreen() {
+        return screen;
+    }
+
 }

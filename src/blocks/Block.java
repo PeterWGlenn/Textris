@@ -24,13 +24,24 @@ public abstract class Block {
 
     public void update(Display display) {
         display.erase(model, xLoc, yLoc);
-        if (canFall()) {
+        if (canFall(display)) {
             yLoc++;
         }
         display.render(model, xLoc, yLoc);
     }
 
-    private boolean canFall() {
+    private boolean canFall(Display display) {
+
+        Character[][] screen = display.getScreen();
+
+        for (int l = 0; l < model[0].length; l++) {
+            if (model[l][height - 1] != null
+                    && screen[l + xLoc][height + yLoc] != null) {
+                return false;
+            }
+
+        }
+
         return true;
     }
 
