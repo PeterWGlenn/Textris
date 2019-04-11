@@ -15,8 +15,13 @@ public class Display {
     private void fillBorder() {
         for (int h = 0; h < height; h++) {
             for (int l = 0; l < length; l++) {
-                if (l == 0 || h == 0 || l == length - 1 || h == height - 1) {
-                    screen[l][h] = '.';
+                // Bottom
+                if (l == 0 || l == length - 1) {
+                    screen[l][h] = '|';
+                }
+                // Sides
+                if (h == height - 1) {
+                    screen[l][h] = '-';
                 }
             }
         }
