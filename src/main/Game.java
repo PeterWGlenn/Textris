@@ -6,7 +6,8 @@ import text.Display;
 
 public class Game {
 
-    private static final int FPS = 1;
+    private static final int FPS = 3;
+    private static boolean hasLost = false;
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -16,7 +17,7 @@ public class Game {
         Block block = new OBlock();
 
         // Game Loop
-        while (true) {
+        while (!hasLost) {
 
             // Updates
             block.update(display);
@@ -25,12 +26,15 @@ public class Game {
             // Spawn New Blocks
             if (!block.falling()) {
                 block = new OBlock();
-                System.out.println("newBlock");
             }
 
             // Sleep
             Thread.sleep((long) (1000.0 / FPS));
         }
+    }
+
+    public static void lose() {
+        hasLost = true;
     }
 
 }

@@ -1,5 +1,6 @@
 package blocks;
 
+import main.Game;
 import text.Display;
 
 public abstract class Block {
@@ -40,6 +41,12 @@ public abstract class Block {
                     && screen[l + xLoc][height + yLoc] != null
                     && screen[l + xLoc][height + yLoc] != ' ') {
                 falling = false;
+
+                // Check for loss
+                if (yLoc <= 0) {
+                    Game.lose();
+                }
+
                 return false;
             }
 
