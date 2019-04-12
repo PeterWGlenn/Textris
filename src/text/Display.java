@@ -2,8 +2,8 @@ package text;
 
 public class Display {
 
-    private static final int length = 20;
-    private static final int height = 10;
+    public static final int length = 20;
+    public static final int height = 10;
 
     private static Character[][] screen;
 
@@ -30,7 +30,7 @@ public class Display {
     public void render(Character[][] model, int x, int y) {
         for (int h = 0; h < model.length; h++) {
             for (int l = 0; l < model[0].length; l++) {
-                if (model[l][h] != null) {
+                if (model[l][h] != null && y + h > 0) {
                     screen[x + l][y + h] = model[l][h];
                 }
             }
@@ -40,7 +40,9 @@ public class Display {
     public void erase(Character[][] model, int x, int y) {
         for (int h = 0; h < model.length; h++) {
             for (int l = 0; l < model[0].length; l++) {
-                screen[x + l][y + h] = ' ';
+                if (y + h > 0) {
+                    screen[x + l][y + h] = ' ';
+                }
             }
         }
     }

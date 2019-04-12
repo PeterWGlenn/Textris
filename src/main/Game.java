@@ -1,5 +1,6 @@
 package main;
 
+import blocks.Block;
 import blocks.OBlock;
 import text.Display;
 
@@ -12,21 +13,20 @@ public class Game {
         // Create Display
         Display display = new Display();
 
-        Character[][] model = new Character[3][3];
-        model[0][0] = '#';
-        model[1][0] = '#';
-        model[2][0] = '#';
-        model[1][1] = '#';
-        display.render(model, 6, 7);
-
-        OBlock o = new OBlock(5);
+        Block block = new OBlock();
 
         // Game Loop
         while (true) {
 
             // Updates
-            o.update(display);
+            block.update(display);
             display.update();
+
+            // Spawn New Blocks
+            if (!block.falling()) {
+                block = new OBlock(2);
+                System.out.println("newBlock");
+            }
 
             // Sleep
             Thread.sleep((long) (1000.0 / FPS));

@@ -7,6 +7,7 @@ public abstract class Block {
     protected final Character bChar = '#';
     protected int length, height;
     protected Character[][] model;
+    protected boolean falling = true;
 
     protected int xLoc, yLoc;
 
@@ -37,12 +38,17 @@ public abstract class Block {
         for (int l = 0; l < model[0].length; l++) {
             if (model[l][height - 1] != null
                     && screen[l + xLoc][height + yLoc] != null) {
+                falling = false;
                 return false;
             }
 
         }
 
         return true;
+    }
+
+    public boolean falling() {
+        return falling;
     }
 
 }
