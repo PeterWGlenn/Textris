@@ -3,7 +3,7 @@ package text;
 public class Display {
 
     public static final int length = 20;
-    public static final int height = 10;
+    public static final int height = 20;
 
     private static Character[][] screen;
 

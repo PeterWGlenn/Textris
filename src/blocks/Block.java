@@ -59,4 +59,12 @@ public abstract class Block {
         return falling;
     }
 
+    public void shiftRight() {
+        xLoc++;
+    }
+
+    public void shiftLeft() {
+        xLoc--;
+    }
+
 }

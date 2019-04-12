@@ -6,18 +6,22 @@ import text.Display;
 
 public class Game {
 
-    private static final int FPS = 3;
+    private static final int FPS = 4;
     private static boolean hasLost = false;
+    protected static Block block;
+    protected static Display display = new Display();
 
     public static void main(String[] args) throws InterruptedException {
 
-        // Create Display
-        Display display = new Display();
-
-        Block block = new OBlock();
+        GameFrame.startFrame();
 
         // Game Loop
         while (!hasLost) {
+
+            // First Block
+            if (block == null) {
+                block = new OBlock();
+            }
 
             // Updates
             block.update(display);
