@@ -24,7 +24,7 @@ public class Game {
 
             // Spawn New Blocks
             if (!block.falling()) {
-                block = new OBlock(2);
+                block = new OBlock();
                 System.out.println("newBlock");
             }
 

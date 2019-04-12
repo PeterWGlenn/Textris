@@ -37,7 +37,8 @@ public abstract class Block {
 
         for (int l = 0; l < model[0].length; l++) {
             if (model[l][height - 1] != null
-                    && screen[l + xLoc][height + yLoc] != null) {
+                    && screen[l + xLoc][height + yLoc] != null
+                    && screen[l + xLoc][height + yLoc] != ' ') {
                 falling = false;
                 return false;
             }
