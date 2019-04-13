@@ -10,7 +10,13 @@ public abstract class Block {
     protected Character[][] model;
     protected boolean falling = true;
 
-    protected int xLoc, yLoc;
+    protected int xLoc, yLoc, asyncXLoc;
+
+    public Block() {
+        xLoc = (Display.length / 2) - (length / 2);
+        yLoc = -height;
+        asyncXLoc = xLoc;
+    }
 
     public int getLength() {
         return length;
@@ -28,6 +34,12 @@ public abstract class Block {
         display.erase(model, xLoc, yLoc);
         if (canFall(display)) {
             yLoc++;
+        }
+        if (canShift(display)) {
+            xLoc = asyncXLoc;
+        }
+        else {
+            asyncXLoc = xLoc;
         }
         display.render(model, xLoc, yLoc);
     }
@@ -55,16 +67,37 @@ public abstract class Block {
         return true;
     }
 
+    private boolean canShift(Display display) {
+
+        Character[][] screen = display.getScreen();
+
+        for (int h = 0; h < model.length; h++) {
+            for (int l = 0; l < model[0].length; l++) {
+                if (screen[asyncXLoc + l][yLoc + h] != null
+                        && screen[asyncXLoc + l][yLoc + h] != ' ') {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     public boolean falling() {
         return falling;
     }
 
     public void shiftRight() {
-        xLoc++;
+
+        asyncXLoc = xLoc;
+        asyncXLoc++;
+
     }
 
     public void shiftLeft() {
-        xLoc--;
+
+        asyncXLoc = xLoc;
+        asyncXLoc--;
     }
 
 }

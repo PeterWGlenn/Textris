@@ -94,6 +94,12 @@ public class GameFrame extends JPanel implements Runnable {
                                     - pixCharAmount),
                             (int) (pixCharAmount * SCALE),
                             (int) (pixCharAmount * SCALE));
+                    g.setColor(Color.BLACK);
+                    g.drawRect((int) (l * pixCharAmount * SCALE),
+                            (int) ((h * pixCharAmount * SCALE)
+                                    - pixCharAmount),
+                            (int) (pixCharAmount * SCALE),
+                            (int) (pixCharAmount * SCALE));
                 }
             }
         }

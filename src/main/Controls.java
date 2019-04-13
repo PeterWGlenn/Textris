@@ -6,10 +6,6 @@ import java.awt.event.KeyListener;
 
 class Controls extends KeyAdapter implements KeyListener {
 
-    public Controls() {
-
-    }
-
     @Override
     public void keyPressed(KeyEvent e) {
         super.keyPressed(e);

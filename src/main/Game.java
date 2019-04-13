@@ -6,7 +6,7 @@ import text.Display;
 
 public class Game {
 
-    private static final int FPS = 4;
+    private static final int FPS = 15;
     private static boolean hasLost = false;
     protected static Block block;
     protected static Display display = new Display();
