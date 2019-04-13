@@ -6,7 +6,8 @@ import text.Display;
 
 public class Game {
 
-    private static final int FPS = 15;
+    private static final int FPS = 100;
+    private static final double BLOCKSPEED = 2.0;
     private static boolean hasLost = false;
     protected static Block block;
     protected static Display display = new Display();
@@ -14,6 +15,7 @@ public class Game {
     public static void main(String[] args) throws InterruptedException {
 
         GameFrame.startFrame();
+        int loops = 0;
 
         // Game Loop
         while (!hasLost) {
@@ -24,7 +26,7 @@ public class Game {
             }
 
             // Updates
-            block.update(display);
+            block.update(display, loops, FPS, BLOCKSPEED);
             display.update();
 
             // Spawn New Blocks
@@ -34,6 +36,7 @@ public class Game {
 
             // Sleep
             Thread.sleep((long) (1000.0 / FPS));
+            loops++;
         }
     }
 
