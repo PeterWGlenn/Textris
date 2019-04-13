@@ -1,13 +1,13 @@
 package main;
 
 import blocks.Block;
-import blocks.OBlock;
+import blocks.TBlock;
 import text.Display;
 
 public class Game {
 
     private static final int FPS = 100;
-    private static final double BLOCKSPEED = 2.0;
+    private static final double BLOCKSPEED = 5.0;
     private static boolean hasLost = false;
     protected static Block block;
     protected static Display display = new Display();
@@ -22,7 +22,7 @@ public class Game {
 
             // First Block
             if (block == null) {
-                block = new OBlock();
+                block = new TBlock();
             }
 
             // Updates
@@ -31,7 +31,7 @@ public class Game {
 
             // Spawn New Blocks
             if (!block.falling()) {
-                block = new OBlock();
+                block = new TBlock();
             }
 
             // Sleep

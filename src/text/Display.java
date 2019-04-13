@@ -28,8 +28,8 @@ public class Display {
     }
 
     public void render(Character[][] model, int x, int y) {
-        for (int h = 0; h < model.length; h++) {
-            for (int l = 0; l < model[0].length; l++) {
+        for (int h = 0; h < model[0].length; h++) {
+            for (int l = 0; l < model.length; l++) {
                 if (model[l][h] != null && y + h >= 0) {
                     screen[x + l][y + h] = model[l][h];
                 }
@@ -38,9 +38,9 @@ public class Display {
     }
 
     public void erase(Character[][] model, int x, int y) {
-        for (int h = 0; h < model.length; h++) {
-            for (int l = 0; l < model[0].length; l++) {
-                if (y + h >= 0) {
+        for (int h = 0; h < model[0].length; h++) {
+            for (int l = 0; l < model.length; l++) {
+                if (y + h >= 0 && model[l][h] != null) {
                     screen[x + l][y + h] = ' ';
                 }
             }
@@ -59,7 +59,7 @@ public class Display {
                     currLine += ' ';
                 }
             }
-            // System.out.println(currLine);
+            System.out.println(currLine);
         }
 
     }

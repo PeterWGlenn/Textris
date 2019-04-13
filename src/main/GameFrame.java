@@ -79,13 +79,18 @@ public class GameFrame extends JPanel implements Runnable {
         for (int h = 0; h < Display.height; h++) {
             for (int l = 0; l < Display.length; l++) {
 
-                g.setColor(Color.BLACK);
                 Character c = Game.display.getScreen()[l][h];
                 if (c != null && c != ' ') {
 
                     // Pick Color
-                    if (c == '#') {
+                    if (c == 'O') {
                         g.setColor(Color.ORANGE);
+                    }
+                    else if (c == 'T') {
+                        g.setColor(Color.BLUE);
+                    }
+                    else {
+                        g.setColor(Color.BLACK);
                     }
 
                     // Draw

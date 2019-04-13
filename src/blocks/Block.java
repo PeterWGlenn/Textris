@@ -5,7 +5,7 @@ import text.Display;
 
 public abstract class Block {
 
-    protected final Character bChar = '#';
+    protected Character bChar;
     protected int length, height;
     protected Character[][] model;
     protected boolean falling = true;
@@ -50,20 +50,21 @@ public abstract class Block {
 
         Character[][] screen = display.getScreen();
 
-        for (int l = 0; l < model[0].length; l++) {
-            if (model[l][height - 1] != null
-                    && screen[l + xLoc][height + yLoc] != null
-                    && screen[l + xLoc][height + yLoc] != ' ') {
-                falling = false;
+        for (int h = 0; h < model[0].length; h++) {
+            for (int l = 0; l < model.length; l++) {
+                if (model[l][h] != null
+                        && screen[l + xLoc][h + 1 + yLoc] != null
+                        && screen[l + xLoc][h + 1 + yLoc] != ' ') {
+                    falling = false;
 
-                // Check for loss
-                if (yLoc <= 0) {
-                    Game.lose();
+                    // Check for loss
+                    if (yLoc <= 0) {
+                        Game.lose();
+                    }
+
+                    return false;
                 }
-
-                return false;
             }
-
         }
 
         return true;
@@ -73,8 +74,8 @@ public abstract class Block {
 
         Character[][] screen = display.getScreen();
 
-        for (int h = 0; h < model.length; h++) {
-            for (int l = 0; l < model[0].length; l++) {
+        for (int h = 0; h < model[0].length; h++) {
+            for (int l = 0; l < model.length; l++) {
                 if (screen[asyncXLoc + l][yLoc + h] != null
                         && screen[asyncXLoc + l][yLoc + h] != ' ') {
                     return false;
