@@ -84,10 +84,13 @@ public class GameFrame extends JPanel implements Runnable {
 
                     // Pick Color
                     if (c == 'O') {
-                        g.setColor(Color.ORANGE);
+                        g.setColor(Color.YELLOW);
                     }
                     else if (c == 'T') {
-                        g.setColor(Color.BLUE);
+                        g.setColor(Color.MAGENTA);
+                    }
+                    else if (c == 'I') {
+                        g.setColor(Color.CYAN);
                     }
                     else {
                         g.setColor(Color.BLACK);
