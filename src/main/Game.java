@@ -1,7 +1,6 @@
 package main;
 
 import blocks.Block;
-import blocks.TBlock;
 import text.Display;
 
 public class Game {
@@ -17,12 +16,12 @@ public class Game {
         GameFrame.startFrame();
         int loops = 0;
 
-        // Game Loop
+        // Game Loop3
         while (!hasLost) {
 
             // First Block
             if (block == null) {
-                block = new TBlock();
+                block = Block.getRandomBlockType();
             }
 
             // Updates
@@ -31,7 +30,7 @@ public class Game {
 
             // Spawn New Blocks
             if (!block.falling()) {
-                block = new TBlock();
+                block = Block.getRandomBlockType();
             }
 
             // Sleep

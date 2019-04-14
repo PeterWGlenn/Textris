@@ -1,5 +1,7 @@
 package blocks;
 
+import java.util.Random;
+
 import main.Game;
 import text.Display;
 
@@ -84,6 +86,22 @@ public abstract class Block {
         }
 
         return true;
+    }
+
+    public static Block getRandomBlockType() {
+
+        int numberOfBlocks = 2;
+
+        Random random = new Random();
+        int id = random.nextInt(numberOfBlocks);
+
+        if (id == 0) {
+            return new TBlock();
+        }
+        else {
+            return new OBlock();
+        }
+
     }
 
     public boolean falling() {
