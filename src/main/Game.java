@@ -6,7 +6,8 @@ import text.Display;
 public class Game {
 
     private static final int FPS = 100;
-    private static final double BLOCKSPEED = 5.0;
+    private static final double BLOCKSPEED = 2.0;
+    private static double blockSpeedMultiplier = 1.0;
     private static boolean hasLost = false;
     protected static Block block;
     protected static Display display = new Display();
@@ -25,7 +26,8 @@ public class Game {
             }
 
             // Updates
-            block.update(display, loops, FPS, BLOCKSPEED);
+            block.update(display, loops, FPS,
+                    BLOCKSPEED * blockSpeedMultiplier);
             display.update();
 
             // Spawn New Blocks
@@ -41,6 +43,10 @@ public class Game {
 
     public static void lose() {
         hasLost = true;
+    }
+
+    public static void setBSM(double bsm) {
+        blockSpeedMultiplier = bsm;
     }
 
 }

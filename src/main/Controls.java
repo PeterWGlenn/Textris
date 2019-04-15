@@ -19,6 +19,23 @@ class Controls extends KeyAdapter implements KeyListener {
             Game.block.shiftLeft();
         }
 
+        // Drop
+        if (c == KeyEvent.VK_S || c == KeyEvent.VK_DOWN) {
+            Game.setBSM(10.0);
+        }
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        super.keyReleased(e);
+        int c = e.getKeyCode();
+
+        // Drop
+        if (c == KeyEvent.VK_S || c == KeyEvent.VK_DOWN) {
+            Game.setBSM(1.0);
+        }
+
     }
 
 }
