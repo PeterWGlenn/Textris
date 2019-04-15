@@ -90,7 +90,7 @@ public abstract class Block {
 
     public static Block getRandomBlockType() {
 
-        int numberOfBlocks = 4;
+        int numberOfBlocks = 6;
 
         Random random = new Random();
         int id = random.nextInt(numberOfBlocks);
@@ -103,6 +103,15 @@ public abstract class Block {
         }
         else if (id == 2) {
             return new JBlock();
+        }
+        else if (id == 3) {
+            return new ZBlock();
+        }
+        else if (id == 4) {
+            return new SBlock();
+        }
+        else if (id == 5) {
+            return new LBlock();
         }
         else {
             return new OBlock();
