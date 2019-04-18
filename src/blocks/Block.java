@@ -58,23 +58,13 @@ public abstract class Block {
 
     private boolean canRotate(Display display) {
 
-        if (true) {
-            return true;
-        }
-
         Character[][] screen = display.getScreen();
 
-        for (int h = 0; h < model[0].length; h++) {
-            for (int l = 0; l < model.length; l++) {
-                if (model[l][h] != null
-                        && screen[l + xLoc][h + 1 + yLoc] != null
-                        && screen[l + xLoc][h + 1 + yLoc] != ' ') {
-                    falling = false;
-
-                    // Check for loss
-                    if (yLoc <= 0) {
-                        Game.lose();
-                    }
+        for (int h = 0; h < asyncModel[0].length; h++) {
+            for (int l = 0; l < asyncModel.length; l++) {
+                if (asyncModel[l][h] != null
+                        && screen[l + xLoc][h + yLoc] != null
+                        && screen[l + xLoc][h + yLoc] != ' ') {
 
                     return false;
                 }
