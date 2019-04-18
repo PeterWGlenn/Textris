@@ -10,6 +10,7 @@ public class SBlock extends Block {
         height = 2;
         model = new Character[length][height];
         model[0][1] = model[1][1] = model[1][0] = model[2][0] = bChar;
+        asyncModel = model;
 
     }
 

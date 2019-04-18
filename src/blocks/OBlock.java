@@ -10,6 +10,7 @@ public class OBlock extends Block {
         height = 2;
         model = new Character[length][height];
         model[0][0] = model[0][1] = model[1][0] = model[1][1] = bChar;
+        asyncModel = model;
 
     }
 
@@ -18,6 +19,7 @@ public class OBlock extends Block {
         height = 2;
         model = new Character[2][2];
         model[0][0] = model[0][1] = model[1][0] = model[1][1] = bChar;
+        asyncModel = model;
 
         xLoc = x;
         yLoc = 0;

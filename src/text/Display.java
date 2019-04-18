@@ -59,7 +59,7 @@ public class Display {
                     currLine += ' ';
                 }
             }
-            System.out.println(currLine);
+            // System.out.println(currLine);
         }
 
     }

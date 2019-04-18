@@ -9,7 +9,7 @@ public abstract class Block {
 
     protected Character bChar;
     protected int length, height;
-    protected Character[][] model;
+    protected Character[][] model, asyncModel;
     protected boolean falling = true;
 
     protected int xLoc, yLoc, asyncXLoc;
@@ -39,13 +39,49 @@ public abstract class Block {
                 && canFall(display)) {
             yLoc++;
         }
+        // Shifting
         if (canShift(display)) {
             xLoc = asyncXLoc;
         }
         else {
             asyncXLoc = xLoc;
         }
+        // Rotating
+        if (canRotate(display)) {
+            model = asyncModel;
+        }
+        else {
+            asyncModel = model;
+        }
         display.render(model, xLoc, yLoc);
+    }
+
+    private boolean canRotate(Display display) {
+
+        if (true) {
+            return true;
+        }
+
+        Character[][] screen = display.getScreen();
+
+        for (int h = 0; h < model[0].length; h++) {
+            for (int l = 0; l < model.length; l++) {
+                if (model[l][h] != null
+                        && screen[l + xLoc][h + 1 + yLoc] != null
+                        && screen[l + xLoc][h + 1 + yLoc] != ' ') {
+                    falling = false;
+
+                    // Check for loss
+                    if (yLoc <= 0) {
+                        Game.lose();
+                    }
+
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     private boolean canFall(Display display) {
@@ -117,6 +153,19 @@ public abstract class Block {
             return new OBlock();
         }
 
+    }
+
+    public void rotate() {
+        Character[][] newModel = new Character[model[0].length][model.length];
+
+        // Swap rows and columns and reverse rows
+        for (int h = 0; h < model[0].length; h++) {
+            for (int l = 0; l < model.length; l++) {
+                newModel[newModel.length - 1 - h][l] = model[l][h];
+            }
+        }
+
+        asyncModel = newModel;
     }
 
     public boolean falling() {

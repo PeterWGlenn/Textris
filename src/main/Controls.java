@@ -19,6 +19,11 @@ class Controls extends KeyAdapter implements KeyListener {
             Game.block.shiftLeft();
         }
 
+        // Rotate
+        if (c == KeyEvent.VK_W || c == KeyEvent.VK_UP) {
+            Game.block.rotate();
+        }
+
         // Drop
         if (c == KeyEvent.VK_S || c == KeyEvent.VK_DOWN) {
             Game.setBSM(10.0);
