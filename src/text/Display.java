@@ -12,6 +12,33 @@ public class Display {
         fillBorder();
     }
 
+    public void clearCompleteLines() {
+        // Loop through each line
+        for (int h = 0; h < height - 1; h++) {
+
+            boolean bubble = false;
+
+            // Loop through the row
+            for (int l = 1; l < length - 1; l++) {
+                if (screen[l][h] == null || screen[l][h] == ' ') {
+                    bubble = true;
+                }
+            }
+
+            // If there are no bubbles, then clear the row
+            if (!bubble) {
+                clearRow(h);
+            }
+        }
+
+    }
+
+    private void clearRow(int row) {
+        for (int l = 1; l < screen.length - 1; l++) {
+            screen[l][row] = ' ';
+        }
+    }
+
     private void fillBorder() {
         for (int h = 0; h < height; h++) {
             for (int l = 0; l < length; l++) {

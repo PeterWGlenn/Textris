@@ -33,6 +33,7 @@ public class Game {
             // Spawn New Blocks
             if (!block.falling()) {
                 block = Block.getRandomBlockType();
+                display.clearCompleteLines();
             }
 
             // Sleep
