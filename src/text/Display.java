@@ -37,6 +37,14 @@ public class Display {
         for (int l = 1; l < screen.length - 1; l++) {
             screen[l][row] = ' ';
         }
+
+        for (int h = row - 1; h > 0; h--) {
+            for (int l = 1; l < length - 1; l++) {
+                Character moved = screen[l][h];
+                screen[l][h] = ' ';
+                screen[l][h + 1] = moved;
+            }
+        }
     }
 
     private void fillBorder() {
