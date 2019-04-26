@@ -26,7 +26,7 @@ class Controls extends KeyAdapter implements KeyListener {
 
         // Drop
         if (c == KeyEvent.VK_S || c == KeyEvent.VK_DOWN) {
-            Game.setBSM(10.0);
+            Game.setBSM(15.0);
         }
 
     }

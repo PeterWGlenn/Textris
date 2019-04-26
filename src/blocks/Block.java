@@ -35,8 +35,9 @@ public abstract class Block {
     public void update(Display display, int loops, int FPS,
             double BLOCKSPEED) {
         display.erase(model, xLoc, yLoc);
-        if ((loops % ((1000 / BLOCKSPEED) / (1000 / FPS))) == 0
-                && canFall(display)) {
+
+        if ((loops % (1 + ((int) ((1000 / BLOCKSPEED) / (1000 / FPS)))) == 0
+                && canFall(display))) {
             yLoc++;
         }
         // Shifting
