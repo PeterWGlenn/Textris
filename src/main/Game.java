@@ -38,7 +38,7 @@ public class Game {
             if (!block.falling()) {
                 block = Block.getRandomBlockType();
                 blocksFallen++;
-                blockSpeedLevelMultiplier += (blocksFallen / 100.0);
+                blockSpeedLevelMultiplier += (blocksFallen / 1000.0);
 
                 display.clearCompleteLines();
             }
